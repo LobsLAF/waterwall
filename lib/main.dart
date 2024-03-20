@@ -33,6 +33,7 @@ class AppScreen extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 16, 179, 225),
       body: DefaultTextStyle.merge(
         style: const TextStyle(
+          fontFamily: 'mclaren',
           fontSize: 16,
           color: Colors.white,
         ),
@@ -42,13 +43,16 @@ class AppScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 40, bottom: 20),
+                padding: EdgeInsets.only(top: 40, bottom: 10),
                 child: Text(
                   "Dashboard WaterWall",
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: 26,
                   ),
                 ),
+              ),
+              Image.asset(
+                "assets/images/Logo.png",
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
