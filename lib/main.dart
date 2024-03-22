@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Layout/Screens/app_screen.dart';
+import 'package:waterwall/Layout/Screens/app_screen_h.dart';
+import 'Layout/Screens/app_screen_v.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,14 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const AppScreen());
+        home: getScreen(context));
+  }
+}
+
+Widget getScreen(BuildContext context) {
+  if (MediaQuery.of(context).size.height > MediaQuery.of(context).size.width) {
+    return const AppScreenV();
+  } else {
+    return const AppScreenH();
   }
 }

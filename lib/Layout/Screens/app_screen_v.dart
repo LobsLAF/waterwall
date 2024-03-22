@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:waterwall/Data/color_data.dart';
 
-class AppScreen extends StatelessWidget {
-  const AppScreen({
+class AppScreenV extends StatelessWidget {
+  const AppScreenV({
     super.key,
   });
 
@@ -52,7 +52,7 @@ class AppScreen extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: AppScreen.drawerBorderRadius / 3,
+                              top: AppScreenV.drawerBorderRadius / 3,
                               bottom: 12),
                           child: Container(
                             height: 50,
