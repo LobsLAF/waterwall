@@ -48,10 +48,12 @@ class AppScreen extends StatelessWidget {
                       ),
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(
-                              AppScreen.drawerBorderRadius / 2),
+                          padding: const EdgeInsets.only(
+                              top: AppScreen.drawerBorderRadius / 3,
+                              bottom: 12),
                           child: Container(
                             height: 50,
                             width: 260,
@@ -76,7 +78,8 @@ class AppScreen extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(
-                              AppScreen.drawerBorderRadius / 2),
+                            12,
+                          ),
                           child: Container(
                             height: 50,
                             width: 260,
@@ -98,6 +101,61 @@ class AppScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: 32),
+                          child: SizedBox(
+                            width: 300,
+                            height: 80,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Última hora:",
+                                        style: TextStyle(
+                                          color: ColorData.blue,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Hoje:",
+                                        style: TextStyle(
+                                          color: ColorData.blue,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 2,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        "x ml",
+                                        style: TextStyle(
+                                          color: ColorData.blue,
+                                        ),
+                                      ),
+                                      Text(
+                                        "y l",
+                                        style: TextStyle(
+                                          color: ColorData.blue,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
