@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:waterwall/Data/color_data.dart';
+import 'package:waterwall/Data/layout_data.dart';
+import 'package:waterwall/Layout/Elements/water_tank.dart';
 
 class AppScreenH extends StatelessWidget {
   const AppScreenH({
@@ -11,9 +12,9 @@ class AppScreenH extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconTheme(
-      data: const IconThemeData(color: ColorData.white),
+      data: const IconThemeData(color: LayoutData.white),
       child: Scaffold(
-        backgroundColor: ColorData.blue,
+        backgroundColor: LayoutData.blue,
         body: DefaultTextStyle.merge(
           style: const TextStyle(
             fontFamily: 'mclaren',
@@ -63,24 +64,14 @@ class AppScreenH extends StatelessWidget {
                                 height: 50,
                                 width: 260,
                                 decoration: BoxDecoration(
-                                    color: ColorData.yellow,
+                                    color: LayoutData.yellow,
                                     borderRadius: BorderRadius.circular(2000)),
                                 child: const Center(
                                   child: Text("Nível da água:"),
                                 ),
                               ),
                             ),
-                            Expanded(
-                              child: AspectRatio(
-                                aspectRatio: 5 / 6,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: ColorData.darkBlue,
-                                      borderRadius: BorderRadius.circular(
-                                          drawerBorderRadius / 3)),
-                                ),
-                              ),
-                            ),
+                            WaterTank(),
                             Padding(
                               padding: const EdgeInsets.all(
                                 12,
@@ -89,7 +80,7 @@ class AppScreenH extends StatelessWidget {
                                 height: 50,
                                 width: 260,
                                 decoration: BoxDecoration(
-                                    color: ColorData.yellow,
+                                    color: LayoutData.yellow,
                                     borderRadius: BorderRadius.circular(2000)),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -124,13 +115,13 @@ class AppScreenH extends StatelessWidget {
                                           Text(
                                             "Última hora:",
                                             style: TextStyle(
-                                              color: ColorData.blue,
+                                              color: LayoutData.blue,
                                             ),
                                           ),
                                           Text(
                                             "Hoje:",
                                             style: TextStyle(
-                                              color: ColorData.blue,
+                                              color: LayoutData.blue,
                                             ),
                                           )
                                         ],
@@ -145,13 +136,13 @@ class AppScreenH extends StatelessWidget {
                                           Text(
                                             "x ml",
                                             style: TextStyle(
-                                              color: ColorData.blue,
+                                              color: LayoutData.blue,
                                             ),
                                           ),
                                           Text(
                                             "y l",
                                             style: TextStyle(
-                                              color: ColorData.blue,
+                                              color: LayoutData.blue,
                                             ),
                                           )
                                         ],

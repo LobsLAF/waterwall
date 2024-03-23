@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:waterwall/Data/color_data.dart';
+import 'package:waterwall/Data/layout_data.dart';
+import '../Elements/water_tank.dart';
 
 class AppScreenV extends StatelessWidget {
   const AppScreenV({
     super.key,
   });
 
-  static const double drawerBorderRadius = 48;
-
   @override
   Widget build(BuildContext context) {
     return IconTheme(
-      data: const IconThemeData(color: ColorData.white),
+      data: const IconThemeData(color: LayoutData.white),
       child: Scaffold(
-        backgroundColor: ColorData.blue,
+        backgroundColor: LayoutData.blue,
         body: DefaultTextStyle.merge(
           style: const TextStyle(
             fontFamily: 'mclaren',
@@ -43,8 +42,8 @@ class AppScreenV extends StatelessWidget {
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(drawerBorderRadius),
-                        topRight: Radius.circular(drawerBorderRadius),
+                        topLeft: Radius.circular(LayoutData.drawerBorderRadius),
+                        topRight: Radius.circular(LayoutData.drawerBorderRadius),
                       ),
                     ),
                     child: Column(
@@ -52,30 +51,20 @@ class AppScreenV extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: AppScreenV.drawerBorderRadius / 3,
+                              top: LayoutData.drawerBorderRadius / 3,
                               bottom: 12),
                           child: Container(
                             height: 50,
                             width: 260,
                             decoration: BoxDecoration(
-                                color: ColorData.yellow,
+                                color: LayoutData.yellow,
                                 borderRadius: BorderRadius.circular(2000)),
                             child: const Center(
                               child: Text("Nível da água:"),
                             ),
                           ),
                         ),
-                        Expanded(
-                          child: AspectRatio(
-                            aspectRatio: 5 / 6,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: ColorData.darkBlue,
-                                  borderRadius: BorderRadius.circular(
-                                      drawerBorderRadius / 3)),
-                            ),
-                          ),
-                        ),
+                        WaterTank(),
                         Padding(
                           padding: const EdgeInsets.all(
                             12,
@@ -84,7 +73,7 @@ class AppScreenV extends StatelessWidget {
                             height: 50,
                             width: 260,
                             decoration: BoxDecoration(
-                                color: ColorData.yellow,
+                                color: LayoutData.yellow,
                                 borderRadius: BorderRadius.circular(2000)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -119,13 +108,13 @@ class AppScreenV extends StatelessWidget {
                                       Text(
                                         "Última hora:",
                                         style: TextStyle(
-                                          color: ColorData.blue,
+                                          color: LayoutData.blue,
                                         ),
                                       ),
                                       Text(
                                         "Hoje:",
                                         style: TextStyle(
-                                          color: ColorData.blue,
+                                          color: LayoutData.blue,
                                         ),
                                       )
                                     ],
@@ -140,13 +129,13 @@ class AppScreenV extends StatelessWidget {
                                       Text(
                                         "x ml",
                                         style: TextStyle(
-                                          color: ColorData.blue,
+                                          color: LayoutData.blue,
                                         ),
                                       ),
                                       Text(
                                         "y l",
                                         style: TextStyle(
-                                          color: ColorData.blue,
+                                          color: LayoutData.blue,
                                         ),
                                       )
                                     ],
