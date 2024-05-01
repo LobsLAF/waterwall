@@ -7,7 +7,7 @@ class WaterTank extends StatelessWidget {
   });
 
   final double maxVolume = 2200;
-  late double currentVolume = 1542.8;
+  late double currentVolume = 1500;
 
   @override
   Widget build(BuildContext context) {
