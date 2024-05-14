@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:waterwall/Data/layout_data.dart';
+import '../../Data/my_default_style.dart';
 import '../Elements/drawer_content.dart';
 
 class AppScreenV extends StatelessWidget {
@@ -13,12 +14,7 @@ class AppScreenV extends StatelessWidget {
       data: const IconThemeData(color: LayoutData.white),
       child: Scaffold(
         backgroundColor: LayoutData.blue,
-        body: DefaultTextStyle.merge(
-          style: const TextStyle(
-            fontFamily: 'mclaren',
-            fontSize: 24,
-            color: Colors.white,
-          ),
+        body: MyDefaultStyle(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

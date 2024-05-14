@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:waterwall/Data/layout_data.dart';
 import 'package:waterwall/Layout/Elements/water_tank.dart';
 
+import 'flow_info_dialog.dart';
+
 class DrawerContent extends StatelessWidget {
   const DrawerContent({
     super.key,
@@ -14,8 +16,7 @@ class DrawerContent extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(
-              top: LayoutData.drawerBorderRadius / 3,
-              bottom: 12),
+              top: LayoutData.drawerBorderRadius / 3, bottom: 12),
           child: Container(
             height: 50,
             width: 260,
@@ -42,7 +43,13 @@ class DrawerContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (builder) => const FlowInfoDialog(),
+                      barrierDismissible: true,
+                    );
+                  },
                   icon: const Icon(
                     Icons.info,
                     size: 34,
@@ -63,10 +70,8 @@ class DrawerContent extends StatelessWidget {
                 Expanded(
                   flex: 3,
                   child: Column(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Última hora:",

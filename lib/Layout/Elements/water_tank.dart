@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:waterwall/Data/layout_data.dart';
 
-class WaterTank extends StatelessWidget {
-  WaterTank({
+class WaterTank extends StatefulWidget {
+  const WaterTank({
     super.key,
   });
 
+  @override
+  State<WaterTank> createState() => _WaterTankState();
+}
+
+class _WaterTankState extends State<WaterTank> {
   final double maxVolume = 2200;
+
   late double currentVolume = 1500;
 
   @override
