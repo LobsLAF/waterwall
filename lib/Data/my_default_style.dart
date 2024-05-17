@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
 class MyDefaultStyle extends StatelessWidget {
+
   final Widget child;
+  final Color textColor;
 
   const MyDefaultStyle({
     super.key,
     required this.child,
+    this.textColor = Colors.white,
   });
 
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle(
-      style: const TextStyle(
+      style: TextStyle(
         fontFamily: 'mclaren',
         fontSize: 24,
-        color: Colors.white,
+        color: textColor,
       ),
       child: child,
     );

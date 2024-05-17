@@ -28,7 +28,7 @@ class DrawerContent extends StatelessWidget {
             ),
           ),
         ),
-        WaterTank(),
+        const WaterTank(),
         Padding(
           padding: const EdgeInsets.all(
             12,

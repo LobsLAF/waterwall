@@ -17,10 +17,60 @@ class FlowInfoDialog extends StatelessWidget {
           decoration: BoxDecoration(
               color: LayoutData.yellow,
               borderRadius: BorderRadius.circular(2000)),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: Row(
             children: [
-              Text("Nível da água:"),
+              IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const BackButtonIcon(),
+              ),
+              const Text("Vazão da água:"),
+            ],
+          ),
+        ),
+      ),
+      content: const MyDefaultStyle(
+        textColor: LayoutData.blue,
+        child: IntrinsicHeight(
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Text("Últimos registros:"),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("data"),
+                  Text("data"),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("data"),
+                  Text("data"),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Text("Previsões:"),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("data"),
+                  Text("data"),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("data"),
+                  Text("data"),
+                ],
+              ),
             ],
           ),
         ),
