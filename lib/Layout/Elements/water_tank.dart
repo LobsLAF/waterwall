@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waterwall/Data/db_connection.dart';
 import 'package:waterwall/Data/layout_data.dart';
 
 class WaterTank extends StatefulWidget {
@@ -11,9 +12,15 @@ class WaterTank extends StatefulWidget {
 }
 
 class _WaterTankState extends State<WaterTank> {
-  final double maxVolume = 2200;
+  final double maxVolume = 220;
 
-  late double currentVolume = 1500;
+  late Future<String> currentVolume;
+
+  @override
+  void initState() {
+    super.initState();
+    currentVolume = DbConnection.instance.getCurrentVolume();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,33 +33,49 @@ class _WaterTankState extends State<WaterTank> {
 
             LayoutData.tankWidth = constraints.maxWidth;
 
-            return Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: LayoutData.darkBlue,
-                    borderRadius: BorderRadius.circular(
-                        LayoutData.drawerBorderRadius / 3),
-                  ),
-                ),
-                Positioned(
-                  top: constraints.maxHeight -
-                      (constraints.maxHeight * currentVolume / maxVolume),
-                  child: Container(
-                    height: LayoutData.tankHeight,
-                    width: LayoutData.tankWidth,
-                    decoration: const BoxDecoration(color: LayoutData.blue),
-                  ),
-                ),
-                Center(
-                  child: Text(
-                    "${currentVolume.toStringAsFixed(1)} l",
-                    style: TextStyle(
-                      fontSize: 32 * constraints.maxHeight / 200
-                    ),
-                  ),
-                )
-              ],
+            return FutureBuilder<String>(
+              future: currentVolume,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Text(
+                    'Erro: ${snapshot.error}, Data: ${snapshot.data}',
+                    style: const TextStyle(color: Colors.black),
+                  );
+                } else {
+                  return Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: LayoutData.darkBlue,
+                          borderRadius: BorderRadius.circular(
+                              LayoutData.drawerBorderRadius / 3),
+                        ),
+                      ),
+                      Positioned(
+                        top: constraints.maxHeight -
+                            (constraints.maxHeight *
+                                double.parse(snapshot.data ?? '0') /
+                                maxVolume),
+                        child: Container(
+                          height: LayoutData.tankHeight,
+                          width: LayoutData.tankWidth,
+                          decoration:
+                              const BoxDecoration(color: LayoutData.blue),
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          "${snapshot.data} l",
+                          style: TextStyle(
+                              fontSize: 32 * constraints.maxHeight / 200),
+                        ),
+                      )
+                    ],
+                  );
+                }
+              },
             );
           },
         ),

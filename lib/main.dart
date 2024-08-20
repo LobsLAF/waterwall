@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:waterwall/Data/db_connection.dart';
 import 'package:waterwall/Layout/Screens/app_screen_h.dart';
 import 'Layout/Screens/app_screen_v.dart';
 
 void main() {
+  DbConnection connectionHandler = DbConnection();
+
+  connectionHandler.startConnection();
+
   runApp(const MyApp());
 }
 
